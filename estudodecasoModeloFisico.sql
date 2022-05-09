@@ -14,6 +14,7 @@ CONSTRAINT PK_professor PRIMARY KEY(id_professor))
 create table disciplina
 (id_disciplina INT IDENTITY(1,1)NOT NULL, -- CAMPO OBRIGATÓRIO
 nm_disciplina VARCHAR(30) NOT NULL,
+id_professor INT NOT NULL,
 CONSTRAINT PK_disciplina PRIMARY KEY(id_disciplina),
 CONSTRAINT FK_professor FOREIGN KEY(id_professor) REFERENCES professor(id_professor))
 
@@ -22,6 +23,7 @@ CONSTRAINT FK_professor FOREIGN KEY(id_professor) REFERENCES professor(id_profes
 create table curso
 (id_curso INT IDENTITY(1,1)NOT NULL, -- CAMPO OBRIGATÓRIO
 nm_curso VARCHAR(30) NOT NULL,
+id_disciplina INT NOT NULL,
 CONSTRAINT PK_curso PRIMARY KEY(id_curso),
 CONSTRAINT FK_disciplina FOREIGN KEY(id_disciplina) REFERENCES disciplina(id_disciplina))
 -------------------
@@ -31,6 +33,7 @@ create table turma
 ano_turma INT NOT NULL,
 cd_turma char(10) NOT NULL,
 sm_turma INT NOT NULL,
+id_curso INT NOT NULL,
 CONSTRAINT PK_turma PRIMARY KEY(id_turma),
 CONSTRAINT FK_curso FOREIGN KEY(id_curso) REFERENCES curso(id_curso))
 -------------------
@@ -41,6 +44,7 @@ nt_aluno FLOAT NOT NULL,
 frq_aluno INT NOT NULL,
 ra_aluno INT NOT NULL,
 nm_aluno VARCHAR(30) NOT NULL,
+id_turma INT NOT NULL,
 CONSTRAINT PK_aluno PRIMARY KEY(id_aluno),
 CONSTRAINT FK_turma FOREIGN KEY(id_turma) REFERENCES turma(id_turma))
 
