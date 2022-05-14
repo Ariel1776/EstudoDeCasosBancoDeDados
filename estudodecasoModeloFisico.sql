@@ -16,7 +16,6 @@ CONSTRAINT PK_professor PRIMARY KEY(id_professor))
 create table curso
 (id_curso INT IDENTITY(1,1)NOT NULL, -- CAMPO OBRIGATÓRIO
 nm_curso VARCHAR(30) NOT NULL,
-id_disciplina INT NOT NULL,
 CONSTRAINT PK_curso PRIMARY KEY(id_curso))
 --drop table curso
 -------------------
@@ -40,6 +39,7 @@ sm_turma INT NOT NULL,
 id_curso INT NOT NULL,
 CONSTRAINT PK_turma PRIMARY KEY(id_turma),
 CONSTRAINT FK_cursoII FOREIGN KEY(id_curso) REFERENCES curso(id_curso))
+
 --drop table turma
 -------------------
 --TABELA ALUNO
